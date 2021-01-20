@@ -1,30 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using PaymentContext.Domain.ValueObjects;
+using PaymentContext.Shared.Entities;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PaymentContext.Domain.Entities
 {
-    public class Student
+    public class Student : Entity
     {
         private IList<Subscription> _subscriptions;
 
-        public Student(string firstName, string lastName, string document, string email)
+        public Student(Name name, Document document, Email email)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
+            this.Name = name;
             this.Document = document;
             this.Email = email;
             this._subscriptions = new List<Subscription>();
         }
 
-        public string FirstName { get; private set; }
+        public Name Name { get; private set; }
 
-        public string LastName { get; private set; }
+        public Document Document { get; private set; }
 
-        public string Document { get; private set; }
+        public Email Email { get; private set; }
 
-        public string Email { get; private set; }
-
-        public string Adrress { get; private set; }
+        public Address Adrress { get; private set; }
 
         public IReadOnlyCollection<Subscription> Subscriptions { get { return this._subscriptions.ToArray();  } }
 
