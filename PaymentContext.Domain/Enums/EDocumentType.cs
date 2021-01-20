@@ -4,6 +4,6 @@
     {   
         CPF = 1,
 
-        CMPJ = 2
+        CNPJ = 2
     }
 }
